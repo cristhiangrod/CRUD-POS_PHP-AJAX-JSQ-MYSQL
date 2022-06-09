@@ -1,0 +1,34 @@
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: white !important;
+    background-color: #007bff !important;
+    font-weight: bold !important;
+}
+
+table.dataTable tbody td{
+    white-space: nowrap !important;
+    font-size: 15px !important;
+}
+
+#tbl_productos thead th{
+    white-space: nowrap !important;
+}
+/*Botones AgregarProducto, Excel, Imprimir, Mostrar de Productos.php */
+.addNewRecord{
+    background-color: #198754 !important;
+    color: white !important;
+}
+.buttons-excel{
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+.buttons-print{
+    background-color: #ffc107 !important;
+    color: white !important;
+}
+.dt-button{
+    padding-top: 5px !important;
+    padding-top: 5px !important;
+}
