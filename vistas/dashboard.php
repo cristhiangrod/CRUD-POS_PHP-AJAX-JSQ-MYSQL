@@ -45,7 +45,7 @@
                  <!-- small box -->
                  <div class="small-box bg-success">
                      <div class="inner">
-                         <h4 id="totalCompras">S./ 2,500.00</h4>
+                         <h4 id="totalCompras"></h4>
 
                          <p>Total Compras</p>
                      </div>
@@ -62,7 +62,7 @@
                  <!-- small box -->
                  <div class="small-box bg-warning">
                      <div class="inner">
-                         <h4 id="totalVentas">S./ 1,200.00</h4>
+                         <h4 id="totalVentas"></h4>
 
                          <p>Total Ventas</p>
                      </div>
@@ -79,7 +79,7 @@
                  <!-- small box -->
                  <div class="small-box bg-danger">
                      <div class="inner">
-                         <h4 id="totalGanancias">S./ 470.00</h4>
+                         <h4 id="totalGanancias"></h4>
 
                          <p>Total Ganancias</p>
                      </div>
@@ -96,7 +96,7 @@
                  <!-- small box -->
                  <div class="small-box bg-primary">
                      <div class="inner">
-                         <h4 id="totalProductosMinStock">15</h4>
+                         <h4 id="totalProductosMinStock"></h4>
 
                          <p>Productos poco stock</p>
                      </div>
@@ -113,7 +113,7 @@
                  <!-- small box -->
                  <div class="small-box bg-secondary">
                      <div class="inner">
-                         <h4 id="totalVentasHoy">S./ 250.00</h4>
+                         <h4 id="totalVentasHoy"></h4>
 
                          <p>Ventas del día</p>
                      </div>
@@ -335,11 +335,11 @@ $(document).ready(function() {
             var areaChartData = {
                 labels: fecha_venta,
                 datasets: [{
-                    label: 'Ventas del Anterior - Octubre',
+                    label: 'Ventas del Anterior - Mayo',
                     backgroundColor: 'rgb(255, 140, 0,0.9)',
                     data: total_venta_ant
                 }, {
-                    label: 'Ventas del Mes - Noviembre',
+                    label: 'Ventas del Mes - Junio',
                     backgroundColor: 'rgba(60,141,188,0.9)',
                     data: total_venta
                 }]

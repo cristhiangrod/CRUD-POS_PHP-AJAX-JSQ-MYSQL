@@ -29,6 +29,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="vistas/assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 
+     <!-- JQuery UI-CSS -->
+    <link rel="stylesheet" href="vistas/assets/plugins/jquery-ui/css/jquery-ui.css">
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -60,6 +63,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- SweetAlert2 -->
     <script src="vistas/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+     <!-- JQuery UI -->
+     <script src="vistas/assets/plugins/jquery-ui/js/jquery-ui.js"></script>
 
     <!-- JS Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>

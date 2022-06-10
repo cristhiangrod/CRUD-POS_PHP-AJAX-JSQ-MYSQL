@@ -62,7 +62,8 @@ class ajaxProductos
 
         echo json_encode($respuesta);
     }
-    public function ajaxActualizarProducto($data){
+    public function ajaxActualizarProducto($data)
+    {
         $table = "productos";
         $id = $_POST["codigo_producto"];
         $nameId = "codigo_producto";
@@ -70,15 +71,25 @@ class ajaxProductos
 
         echo json_encode($respuesta);
     }
-    public function ajaxEliminarProducto(){
+    public function ajaxEliminarProducto()
+    {
         $table = "productos";
         $id = $_POST["codigo_producto"];
         $nameId = "codigo_producto";
-        
+
         $respuesta = ProductosControlador::ctrEliminarProducto($table, $id, $nameId);
 
         echo json_encode($respuesta);
     }
+
+    /* Listar Nombre de Productos para Input de Auto Completado*/
+    public function ajaxListarNombreProductos()
+    {
+        $NombreProductos = ProductosControlador::ctrListarNombreProductos();
+
+        echo json_encode($NombreProductos); 
+    }
+
 }
 
 if (isset($_POST['accion']) && $_POST['accion'] == 1) { // parametro para listar productos
@@ -106,7 +117,7 @@ if (isset($_POST['accion']) && $_POST['accion'] == 1) { // parametro para listar
     );
 
     $actualizarStock->ajaxActualizarStock($data);
-} else if (isset($_POST['accion']) && $_POST['accion'] == 4) {
+} else if (isset($_POST['accion']) && $_POST['accion'] == 4) { //Accion Para actualizar un Producto
     $actualizarProducto = new ajaxProductos();
 
     $data = array(
@@ -119,10 +130,13 @@ if (isset($_POST['accion']) && $_POST['accion'] == 1) { // parametro para listar
         "minimo_stock_producto" => $_POST["minimo_stock_producto"],
     );
 
-    $actualizarProducto -> ajaxActualizarProducto($data);
-}else if (isset($_POST['accion']) && $_POST['accion'] == 5) {
+    $actualizarProducto->ajaxActualizarProducto($data);
+} else if (isset($_POST['accion']) && $_POST['accion'] == 5) { //Accion Para eliminar un Producto
     $eliminarProducto = new ajaxProductos();
-    $eliminarProducto -> ajaxEliminarProducto();
+    $eliminarProducto->ajaxEliminarProducto();
+} else if (isset($_POST['accion']) && $_POST['accion'] == 6) { //Accion Para completar Table de Ventas
+    $nombreProductos = new ajaxProductos();
+    $nombreProductos -> ajaxListarNombreProductos();
 } else if (isset($_FILES)) {
     $archivo_productos = new ajaxProductos();
     $archivo_productos->fileProductos = $_FILES['fileProductos'];

@@ -201,13 +201,13 @@ class ProductosModelo
         $stmt = null;
     }
 
-    static public function mdlActualizarInformacion($table, $data, $id, $nameId){
+    static public function mdlActualizarInformacion($table, $data, $id, $nameId)
+    {
         $set = "";
 
         foreach ($data as $key => $value) {
-            
-            $set .= $key." = :".$key.",";
-                
+
+            $set .= $key . " = :" . $key . ",";
         }
 
         $set = substr($set, 0, -1);
@@ -215,34 +215,41 @@ class ProductosModelo
         $stmt = Conexion::conectar()->prepare("UPDATE $table SET $set WHERE $nameId = :$nameId");
 
         foreach ($data as $key => $value) {
-            
-            $stmt->bindParam(":".$key, $data[$key], PDO::PARAM_STR);
-            
-        }		
 
-        $stmt->bindParam(":".$nameId, $id, PDO::PARAM_INT);
+            $stmt->bindParam(":" . $key, $data[$key], PDO::PARAM_STR);
+        }
 
-        if($stmt->execute()){
+        $stmt->bindParam(":" . $nameId, $id, PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
 
             return "ok";
-
-        }else{
+        } else {
 
             return Conexion::conectar()->errorInfo();
-        
         }
     }
 
     /*Peticion DELETE para eliminar datos*/
-    static public function mdlEliminarInformacion($table, $id, $nameId){
+    static public function mdlEliminarInformacion($table, $id, $nameId)
+    {
         $stmt = Conexion::conectar()->prepare("DELETE FROM $table WHERE $nameId = :$nameId");
-        $stmt -> bindParam(":".$nameId, $id, PDO::PARAM_INT);
+        $stmt->bindParam(":" . $nameId, $id, PDO::PARAM_INT);
 
-        if ($stmt -> execute()) {
+        if ($stmt->execute()) {
             return "ok";
         } else {
             return Conexion::conectar()->errorInfo();
         }
-        
+    }
+
+    /* Listar Nombre de Productos para Input de Auto Completado*/
+    static public function mdlListarNombreProductos()
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT Concat(codigo_producto , ' - ' ,c.nombre_categoria,' - ',descripcion_producto, ' - S./ ' , p.precio_venta_producto)  as descripcion_producto
+                                                FROM productos p inner join categorias c on p.id_categoria_producto = c.id_categoria");
+
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }

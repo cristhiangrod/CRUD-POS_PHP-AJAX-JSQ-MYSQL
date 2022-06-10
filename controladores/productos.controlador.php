@@ -64,4 +64,12 @@ class ProductosControlador
 
         return $respuesta;
     }
+
+    /* Listar Nombre de Productos para Input de Auto Completado*/
+    static public function ctrListarNombreProductos(){
+        $producto = ProductosModelo::mdlListarNombreProductos();
+
+        return $producto;
+    }
+
 }
