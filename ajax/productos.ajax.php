@@ -90,6 +90,13 @@ class ajaxProductos
         echo json_encode($NombreProductos); 
     }
 
+    public function ajaxGetDatosPRoducto()
+    {
+        $producto = ProductosControlador::ctrGetDatosProducto($this->codigo_producto);
+
+        echo json_encode($producto); 
+    }
+
 }
 
 if (isset($_POST['accion']) && $_POST['accion'] == 1) { // parametro para listar productos
@@ -137,7 +144,12 @@ if (isset($_POST['accion']) && $_POST['accion'] == 1) { // parametro para listar
 } else if (isset($_POST['accion']) && $_POST['accion'] == 6) { //Accion Para completar Table de Ventas
     $nombreProductos = new ajaxProductos();
     $nombreProductos -> ajaxListarNombreProductos();
-} else if (isset($_FILES)) {
+} else if (isset($_POST['accion']) && $_POST['accion'] == 7) { //Accion Para buscar producto por codigo de barras /pagina Ventas
+    $listaProducto = new ajaxProductos();
+    $listaProducto -> codigo_producto = $_POST["codigo_producto"];
+    $listaProducto -> ajaxGetDatosPRoducto();
+} 
+ else if (isset($_FILES)) {
     $archivo_productos = new ajaxProductos();
     $archivo_productos->fileProductos = $_FILES['fileProductos'];
     $archivo_productos->ajaxCargaMasivaProductos();

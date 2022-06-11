@@ -72,4 +72,10 @@ class ProductosControlador
         return $producto;
     }
 
+    static public function ctrGetDatosProducto($codigo_producto){
+        $producto = ProductosModelo::mdlGetDatosProducto($codigo_producto);
+
+        return $producto;
+    }
+
 }
